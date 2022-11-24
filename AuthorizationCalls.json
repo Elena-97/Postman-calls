@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "d0153476-de73-4991-a89c-c77fb88e6fd2",
+		"name": "Api test.3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22923530"
+	},
+	"item": [
+		{
+			"name": "https://api.trello.com/1/boards/?name=Elena Logofatu11&key=b3005d4701cfa9b9133443915964c62c&token=5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.expect(response.name).to.eql(\"Elena Logofatu11\");\r",
+							"});\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.expect(response.prefs.permissionLevel).to.eql(\"private\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?name=Elena Logofatu11&key=b3005d4701cfa9b9133443915964c62c&token=5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Elena Logofatu11"
+						},
+						{
+							"key": "key",
+							"value": "b3005d4701cfa9b9133443915964c62c"
+						},
+						{
+							"key": "token",
+							"value": "5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.trello.com/1/boards/630caefe3736da0051cdd427?key=b3005d4701cfa9b9133443915964c62c&token=5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/630caefe3736da0051cdd427?key=b3005d4701cfa9b9133443915964c62c&token=5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"630caefe3736da0051cdd427"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "b3005d4701cfa9b9133443915964c62c"
+						},
+						{
+							"key": "token",
+							"value": "5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

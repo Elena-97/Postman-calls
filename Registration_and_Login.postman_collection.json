@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "76b7e9d4-cd5d-4e36-bf9f-2725a806de00",
+		"name": "Registration_and_Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22923530"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://eoidxvmzokwi5m6.m.pipedream.net"
+			},
+			"response": []
+		},
+		{
+			"name": "registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://eoxdlk5i2jz0lj6.m.pipedream.net"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.trello.com/1/boards/630ca851930ddc002043c1b8?key=b3005d4701cfa9b9133443915964c62c&token=5475562c56a93bda44f34313b4f4fc3857936496558a8ef9d4c17bcb36f94185",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json()\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.expect(response.name).to.eql(\"Elena Logofatu11\");\r",
+							"});\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.expect(response.prefs.permissionLevel).to.eql(\"private\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{board_id}}?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{board_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
